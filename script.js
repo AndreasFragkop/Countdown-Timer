@@ -1,4 +1,6 @@
 // Test script Andreas
+// This is a simple countdown timer script
+// by Andreas Fragkopoulos
 
 var timerinterval;
 var isRunning = false;
@@ -32,7 +34,9 @@ function startTimer() {
 
     }, 1000);
 }
-   
+
+// Stop the timer
+
 function stopTimer() {
 
     clearInterval(timerinterval);
@@ -41,6 +45,8 @@ function stopTimer() {
     document.getElementById('message').innerHTML = '';
     document.getElementById('display').classList.remove('finished');
 }
+
+// Update the display
 
 function updateDisplay(seconds) {
     var minutes = Math.floor(seconds / 60);
