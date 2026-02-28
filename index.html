@@ -5,112 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff0000 0%, #ff5100 100%);
-            margin: 0;
-            padding: 50px;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            max-width: 400px;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-        }
-        
-        .input-section {
-            margin-bottom: 30px;
-        }
-        
-        input {
-            padding: 15px;
-            font-size: 20px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            width: 100px;
-            text-align: center;
-            margin: 10px;
-        }
-        
-        button {
-            padding: 15px 25px;
-            font-size: 18px;
-            margin: 10px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        
-        .start-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-        
-        .start-btn:hover {
-            background-color: #45a049;
-        }
-        
-        .stop-btn {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        .stop-btn:hover {
-            background-color: #da190b;
-        }
-        
-        .timer-display {
-            font-size: 48px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin: 30px 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 15px;
-        }
-        
-        .finished {
-            color: #e74c3c !important;
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0.3; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>⏰ Countdown Timer</h1>
-        
-        <div class="input-section">
-            <input type="number" id="secondsInput" placeholder="60" value="10">
-            <br>
-            <label>Enter seconds</label>
-        </div>
-        
-        <button class="start-btn" onclick="startTimer()">Start Timer</button>
-        <button class="stop-btn" onclick="stopTimer()">Stop Timer</button>
-        
-        <div id="display" class="timer-display">00:00</div>
-        
-        <div id="message"></div>
-    </div>
+    <main class="app-shell">
+        <section class="container" id="timerCard">
+            <h1>Countdown timer</h1>
 
-    <script src="script.js"></script>
+            <div class="timer-display-wrap">
+                <div id="display" class="timer-display">00:00</div>
+                <div class="progress" aria-hidden="true">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <p class="display-caption">Hours : Minutes : Seconds</p>
+            </div>
+
+            <div class="preset-section">
+                <p class="field-label">Quick presets</p>
+                <div class="presets">
+                    <button class="preset-chip" id="preset30" type="button" data-seconds="30">30s</button>
+                    <button class="preset-chip" id="preset60" type="button" data-seconds="60">1m</button>
+                    <button class="preset-chip" id="preset300" type="button" data-seconds="300">5m</button>
+                    <button class="preset-chip" id="preset600" type="button" data-seconds="600">10m</button>
+                    <button class="preset-chip" id="preset3600" type="button" data-seconds="3600">1h</button>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <p class="field-label">Set duration</p>
+                <div class="time-inputs">
+                    <div class="time-field">
+                        <label for="hoursInput">Hours</label>
+                        <input type="number" id="hoursInput" min="0" placeholder="00">
+                    </div>
+                    <div class="time-field">
+                        <label for="minutesInput">Minutes</label>
+                        <input type="number" id="minutesInput" min="0" max="59" placeholder="00">
+                    </div>
+                    <div class="time-field">
+                        <label for="secondsInput">Seconds</label>
+                        <input type="number" id="secondsInput" min="0" max="59" placeholder="00">
+                    </div>
+                </div>
+                <p class="input-hint">Enter hours, minutes, and seconds separately.</p>
+            </div>
+
+            <div class="actions">
+                <button class="start-btn" id="startBtn" type="button">Start</button>
+                <button class="stop-btn" id="pauseBtn" type="button">Pause</button>
+                <button class="stop-btn" id="resetBtn" type="button">Reset</button>
+            </div>
+
+            <div id="message" class="message"></div>
+        </section>
+    </main>
+
+    <script src="js/dom.js"></script>
+    <script src="js/display.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
