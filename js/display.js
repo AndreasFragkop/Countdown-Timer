@@ -1,3 +1,4 @@
+// Format total seconds into the timer text shown in the UI.
 function updateDisplay(seconds) {
     var hours = Math.floor(seconds / 3600);
     var minutes = Math.floor((seconds % 3600) / 60);
@@ -10,11 +11,13 @@ function updateDisplay(seconds) {
     display.textContent = hours + ':' + minutes + ':' + remainingSeconds;
 }
 
+// Keep the progress bar in sync with elapsed time.
 function updateProgress() {
     var progress = initialDuration > 0 ? ((initialDuration - timeLeft) / initialDuration) * 100 : 0;
     progressFill.style.width = Math.max(0, Math.min(100, progress)) + '%';
 }
 
+// Reflect the current timer state in the button labels and disabled states.
 function updateControls() {
     startBtn.disabled = isRunning;
     pauseBtn.disabled = !isRunning && !isPaused;
@@ -23,10 +26,12 @@ function updateControls() {
     pauseBtn.classList.toggle('is-paused', isPaused);
 }
 
+// Remove any status text shown below the buttons.
 function clearMessage() {
     message.textContent = '';
 }
 
+// Split a total-second value back into the three manual inputs.
 function setInputsFromDuration(totalSeconds) {
     var hours = Math.floor(totalSeconds / 3600);
     var minutes = Math.floor((totalSeconds % 3600) / 60);

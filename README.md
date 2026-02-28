@@ -23,6 +23,13 @@ countdown-timer/
 ## Run
 
 1. Open `index.html` in a web browser.
+2. Or start a simple local server from the project folder:
+
+```bash
+python3 -m http.server
+```
+
+3. Then open `http://localhost:8000` in your browser.
 
 ## Requirements
 

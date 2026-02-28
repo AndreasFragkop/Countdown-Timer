@@ -1,9 +1,11 @@
+// Shared timer state for the running countdown.
 var timerInterval;
 var isRunning = false;
 var isPaused = false;
 var initialDuration = 0;
 var timeLeft = 0;
 
+// Start a new countdown or resume an already paused one.
 function startTimer() {
     if (isPaused) {
         resumeTimer();
@@ -32,6 +34,7 @@ function startTimer() {
     timerInterval = setInterval(tickTimer, 1000);
 }
 
+// Advance the timer by one second and complete it at zero.
 function tickTimer() {
     timeLeft = timeLeft - 1;
     updateDisplay(timeLeft);
@@ -42,6 +45,7 @@ function tickTimer() {
     }
 }
 
+// Pause a running timer, or resume if the button is pressed again while paused.
 function pauseTimer() {
     if (isRunning) {
         clearInterval(timerInterval);
@@ -57,6 +61,7 @@ function pauseTimer() {
     }
 }
 
+// Resume the countdown without resetting its remaining time.
 function resumeTimer() {
     if (!isPaused || timeLeft <= 0) {
         return;
@@ -69,6 +74,7 @@ function resumeTimer() {
     timerInterval = setInterval(tickTimer, 1000);
 }
 
+// Stop the active interval and restore the last configured duration.
 function resetTimer() {
     clearInterval(timerInterval);
     isRunning = false;
@@ -82,6 +88,7 @@ function resetTimer() {
     updateControls();
 }
 
+// Finalize the timer state and trigger the completion feedback.
 function completeTimer() {
     clearInterval(timerInterval);
     isRunning = false;
@@ -96,6 +103,7 @@ function completeTimer() {
     playEndSound();
 }
 
+// Apply one of the preset durations to the timer.
 function applyDuration(seconds) {
     if (seconds <= 0) {
         return;
@@ -115,6 +123,7 @@ function applyDuration(seconds) {
     updateControls();
 }
 
+// Mirror manual input changes into the internal timer state when idle.
 function syncDurationFromInputs() {
     var nextValue = getTotalSecondsFromInputs();
 
@@ -127,6 +136,7 @@ function syncDurationFromInputs() {
     }
 }
 
+// Convert hours, minutes, and seconds fields into one total-second value.
 function getTotalSecondsFromInputs() {
     var hours = parseInt(hoursInput.value, 10) || 0;
     var minutes = parseInt(minutesInput.value, 10) || 0;

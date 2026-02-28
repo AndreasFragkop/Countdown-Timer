@@ -1,3 +1,4 @@
+// Cache DOM references once so the rest of the app can reuse them.
 var hoursInput = document.getElementById('hoursInput');
 var minutesInput = document.getElementById('minutesInput');
 var secondsInput = document.getElementById('secondsInput');

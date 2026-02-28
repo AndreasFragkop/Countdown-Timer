@@ -1,4 +1,5 @@
 :root {
+    /* Core color tokens used across the app */
     --bg: #f6f7fb;
     --panel: #ffffff;
     --panel-border: #e5e7eb;
@@ -16,6 +17,7 @@
 }
 
 * {
+    /* Predictable sizing for layout and spacing */
     box-sizing: border-box;
 }
 
@@ -46,6 +48,7 @@ body {
 }
 
 .container.completed {
+    /* Slight visual change when the countdown finishes */
     border-color: var(--accent);
     background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
 }
@@ -80,6 +83,7 @@ h1 {
 }
 
 .progress {
+    /* Track for the elapsed-time progress bar */
     width: 100%;
     height: 10px;
     margin-top: 16px;
@@ -89,6 +93,7 @@ h1 {
 }
 
 .progress-fill {
+    /* Filled portion of the progress bar */
     width: 0%;
     height: 100%;
     background: linear-gradient(90deg, var(--accent) 0%, var(--accent-strong) 100%);
@@ -109,6 +114,7 @@ h1 {
 }
 
 .time-inputs {
+    /* Keep the three time inputs aligned in one row */
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
@@ -179,6 +185,7 @@ input:focus {
 }
 
 .time-field input:placeholder-shown {
+    /* Make empty inputs feel intentional instead of blank */
     color: #94a3b8;
     font-weight: 500;
 }
@@ -190,6 +197,7 @@ input:focus {
 }
 
 .actions {
+    /* Even button sizing for the three control actions */
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
@@ -231,6 +239,7 @@ button:disabled {
 }
 
 .stop-btn.is-paused {
+    /* Highlight the pause button when it becomes resume */
     background: var(--accent-soft);
     color: var(--accent-strong);
     border-color: #bfdbfe;
@@ -249,6 +258,7 @@ button:disabled {
 }
 
 .finished {
+    /* Blink the display when the countdown has completed */
     color: var(--success) !important;
     animation: blink 1.2s ease-in-out infinite;
 }
@@ -267,6 +277,7 @@ button:disabled {
 }
 
 @media (max-width: 640px) {
+    /* Stack controls on smaller screens */
     .app-shell {
         padding: 18px;
     }

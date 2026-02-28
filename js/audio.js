@@ -1,5 +1,7 @@
+// Reuse one audio context so repeated alerts do not recreate it each time.
 var audioContext = null;
 
+// Play a short two-note completion sound when the timer reaches zero.
 function playEndSound() {
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -9,6 +11,7 @@ function playEndSound() {
     playTone(988, 0.22, 0.22, 'triangle');
 }
 
+// Generate an individual tone with a soft attack and fade-out.
 function playTone(frequency, startDelay, duration, type) {
     var oscillator = audioContext.createOscillator();
     var gainNode = audioContext.createGain();

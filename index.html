@@ -10,8 +10,10 @@
 <body>
     <main class="app-shell">
         <section class="container" id="timerCard">
+            <!-- Main app title -->
             <h1>Countdown timer</h1>
 
+            <!-- Live countdown display and progress indicator -->
             <div class="timer-display-wrap">
                 <div id="display" class="timer-display">00:00</div>
                 <div class="progress" aria-hidden="true">
@@ -20,6 +22,7 @@
                 <p class="display-caption">Hours : Minutes : Seconds</p>
             </div>
 
+            <!-- Shortcut durations for common timer values -->
             <div class="preset-section">
                 <p class="field-label">Quick presets</p>
                 <div class="presets">
@@ -31,6 +34,7 @@
                 </div>
             </div>
 
+            <!-- Manual duration inputs -->
             <div class="input-section">
                 <p class="field-label">Set duration</p>
                 <div class="time-inputs">
@@ -50,16 +54,19 @@
                 <p class="input-hint">Enter hours, minutes, and seconds separately.</p>
             </div>
 
+            <!-- Primary timer controls -->
             <div class="actions">
                 <button class="start-btn" id="startBtn" type="button">Start</button>
                 <button class="stop-btn" id="pauseBtn" type="button">Pause</button>
                 <button class="stop-btn" id="resetBtn" type="button">Reset</button>
             </div>
 
+            <!-- Status text such as pause or completion messages -->
             <div id="message" class="message"></div>
         </section>
     </main>
 
+    <!-- Scripts are loaded in dependency order -->
     <script src="js/dom.js"></script>
     <script src="js/display.js"></script>
     <script src="js/audio.js"></script>
