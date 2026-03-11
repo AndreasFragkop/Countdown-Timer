@@ -31,12 +31,6 @@ python3 -m http.server
 
 3. Then open `http://localhost:8000` in your browser.
 
-## Requirements
-
-- A modern web browser
-- JavaScript enabled
-- No build tools or installation required
-
 ## How to Use
 
 1. Enter hours, minutes, and seconds.
@@ -62,12 +56,6 @@ python3 -m http.server
 - Keyboard shortcuts
 - Completion sound
 - Clean SaaS-style interface
-
-## Limitations
-
-- No background persistence after page reload
-- Sound volume depends on browser and device settings
-- The timer is designed for a single countdown at a time
 
 ## Privacy
 
